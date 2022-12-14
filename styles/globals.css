@@ -24,5 +24,5 @@ a {
 }
 
 .primary-button {
-  @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400 active:bg-amber-500;
+  @apply rounded bg-emerald-300 py-2 px-4 shadow outline-none hover:bg-emerald-400 active:bg-emerald-500;
 }
