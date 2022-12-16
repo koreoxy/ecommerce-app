@@ -26,3 +26,9 @@ a {
 .primary-button {
   @apply rounded bg-emerald-300 py-2 px-4 shadow outline-none hover:bg-emerald-400 active:bg-emerald-500;
 }
+
+input,
+select,
+textarea {
+  @apply rounded border p-2 outline-none ring-indigo-300 focus:ring;
+}
