@@ -39,7 +39,7 @@ function CartScreen() {
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
-          <div className="overflow-x-auto md:cols-span-3">
+          <div className="overflow-x-auto md:col-span-3">
             <table className="min-w-full">
               <thead className="border-b">
                 <tr>
