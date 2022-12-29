@@ -33,6 +33,8 @@ const data = {
       numReviews: 8,
       countInStock: 20,
       description: 'Sayur sawi segar',
+      isFeatured: true,
+      banner: '/images/banner1.jpg',
     },
     {
       name: 'Kacang Panjang',
@@ -44,6 +46,8 @@ const data = {
       numReviews: 8,
       countInStock: 20,
       description: 'Kacang panjan kualitas bagus',
+      isFeatured: true,
+      banner: '/images/banner2.jpg',
     },
     {
       name: 'Buncis',
