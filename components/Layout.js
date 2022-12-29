@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from '@headlessui/react';
 import DropdownLink from './DropdownLink';
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -23,6 +24,14 @@ export default function Layout({ title, children }) {
     Cookies.remove('cart');
     dispatch({ type: 'CART_RESET' });
     signOut({ callbackUrl: '/login' });
+  };
+
+  const [query, setQuery] = useState('');
+
+  const router = useRouter();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    router.push(`/search?query=${query}`);
   };
 
   return (
@@ -41,6 +50,36 @@ export default function Layout({ title, children }) {
             <Link href="/" className="text-lg font-bold">
               OxyWear
             </Link>
+            <form
+              onSubmit={submitHandler}
+              className="mx-auto hidden w-full justify-center md:flex"
+            >
+              <input
+                onChange={(e) => setQuery(e.target.value)}
+                type="text"
+                className="rounded-tr-none rounded-br-none p-1 text-sm focus:ring-0"
+                placeholder="Search products"
+              />
+              <button
+                className="rounded rounded-tl-none rounded-bl-none bg-emerald-300 p-1 text-sm text-white"
+                type="submit"
+                id="button-addon2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path d="M8.25 10.875a2.625 2.625 0 115.25 0 2.625 2.625 0 01-5.25 0z" />
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.125 4.5a4.125 4.125 0 102.338 7.524l2.007 2.006a.75.75 0 101.06-1.06l-2.006-2.007a4.125 4.125 0 00-3.399-6.463z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </form>
             <div>
               <Link href="/cart" className="p-2">
                 Cart
